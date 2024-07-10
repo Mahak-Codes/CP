@@ -4,14 +4,13 @@ using namespace std;
 #define int long long
 #define endl "\n"
 #define mahak_codes ios_base::sync_with_stdio(false); cin.tie(nullptr);
-int pw(int n){
-    int eq=0;
-    for(int i=n;i>0;i--){
-        if(!(i&(i-1))){
-            eq=i;
-            break;
-        }
-    }
+int pw(int x){
+    x |= x >> 1;
+    x |= x >> 2;
+    x |= x >> 4;
+    x |= x >> 8;
+    x |= x >> 16;
+    int eq= x ^ (x >> 1);
     return eq;
 }
 int32_t main() {
@@ -26,8 +25,5 @@ int32_t main() {
         int ans=diff*4;
         cout<<ans<<endl;
     }
-
-    
-
     return 0;
 }
