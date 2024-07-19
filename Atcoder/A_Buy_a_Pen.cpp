@@ -1,0 +1,25 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+#define int long long
+#define endl "\n"
+#define mahak_codes ios_base::sync_with_stdio(false); cin.tie(nullptr);
+
+int32_t main() {
+    mahak_codes
+    int red,green,blue;
+    cin>>red>>green>>blue;
+    string c;
+    cin>>c;
+    if(c=="Red"){
+        cout<<min(green,blue);
+    }
+    else if(c=="Blue"){
+        cout<<min(green,red);
+    }
+    else{
+        cout<<min(blue,red);
+
+    }
+    return 0;
+}
