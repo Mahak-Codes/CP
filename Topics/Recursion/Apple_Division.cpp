@@ -6,7 +6,14 @@ using namespace std;
 #define mahak_codes                   \
     ios_base::sync_with_stdio(false); \
     cin.tie(nullptr);
-
+int solve(vector<int>a,int i,int sum1,int sum2){
+    if(i==a.size()){
+        return abs(sum1-sum2);
+    }
+    int sl=solve(a,i+1,sum1+a[i],sum2);
+    int nsl=solve(a,i+1,sum1,sum2+a[i]);
+    return min(sl,nsl);
+}
 int32_t main()
 {
     mahak_codes int n;
@@ -17,15 +24,8 @@ int32_t main()
     for (int i = 0; i < n; i++)
     {
         cin >> a[i];
-        sum += a[i];
+        
     }
-    sort(a.begin(), a.end(), greater<int>());
-    int cnt=0;
-    for(int i=0;i<n;i++){
-        cnt+=a[i];
-        ans=min(ans,abs(sum-cnt));
-        sum-=a[i];
-    }
-    cout<<ans<<endl;
-    return 0;
+    cout<<solve(a,0,0,0)<<endl;;
+    
 }
