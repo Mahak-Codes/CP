@@ -4,6 +4,7 @@
         "*.cpp": "cpp",
         "COMMIT_EDITMSG": "git-commit",
         "vector": "cpp",
-        "random": "cpp"
+        "random": "cpp",
+        "valarray": "cpp"
     }
 }
