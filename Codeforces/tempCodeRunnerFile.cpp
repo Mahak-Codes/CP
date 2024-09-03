@@ -13,29 +13,23 @@ int32_t main()
     cin >> t;
     while (t--)
     {
-        int n, k;
-        cin >> n >> k;
-        vector<int>ans;
-        vector<vector<char>> a(n, vector<char>(n, 0));
-        for (int i = 0; i < n; i++)
+        int l = 1, r = 999;
+        while (l != r)
         {
-            for (int j = 0; j < n; j++)
-            {
-                cin >> a[i][j];
-                if (j % k == 0 && i % k == 0)
-                {
-                    ans .push_back(a[i][j]-'0');
-                }
+            int mid = (l + r + 1) / 2;
+            cout<<'?'<<" "<<l<<" "<<mid;
+            fflush(stdout);
+            int res;
+            cin>>res;
+            if(res==l*r){
+               l=mid+1;
+            }
+            else{
+                r=mid-1;
             }
         }
-        for (int i = 0; i < k * k; i++)
-        {
-            if (i % k == 0)
-            {
-                cout << endl;
-            }
-            cout << ans[i];
-        }
+        printf("! %d\n", l);
+        fflush(stdout);
     }
 
     return 0;
