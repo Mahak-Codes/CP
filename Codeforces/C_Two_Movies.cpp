@@ -1,0 +1,59 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+#define int long long
+#define endl "\n"
+#define mahak_codes                   \
+    ios_base::sync_with_stdio(false); \
+    cin.tie(nullptr);
+
+int32_t main()
+{
+    mahak_codes int t;
+    cin >> t;
+    while (t--)
+    {
+        int n;
+        cin >> n;
+        vector<int> a(n, 0), b(n, 0);
+        int s1 = 0, s2 = 0;
+        for (int i = 0; i < n; i++)
+        {
+            cin >> a[i];
+        }
+        for (int i = 0; i < n; i++)
+        {
+            cin >> b[i];
+        }
+        int ncnt = 0, pcnt = 0;
+        for (int i = 0; i < n; i++)
+        {
+            if (a[i] == 1 && b[i] == 1)
+            {
+                pcnt++;
+            }
+            else
+            {
+                if (a[i] == b[i] && a[i]==-1)
+                {
+                    ncnt++;
+                }
+                else if (a[i] > b[i])
+                {
+                    s1 += a[i];
+                }
+                else
+                {
+                    s2 += b[i];
+                }
+            }
+        }
+        int ans=INT_MIN;
+        for(int i=-ncnt;i<=pcnt;i++ ){
+            ans=max(ans,min(s1+i,s2+pcnt-ncnt-i));
+        }
+        cout << ans << endl;
+    }
+
+    return 0;
+}
