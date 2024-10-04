@@ -34,15 +34,12 @@ int32_t main() {
             rcnt++;
         }
     }
-    rcnt*=m;
     for(int i=0;i<m;i++){
         if(iscol(v,i,n)){
             ccnt++;
         }
     }
-    rcnt-=ccnt;
-    ccnt*=n;
-    int ans=rcnt+ccnt;
+    int ans=rcnt*m+ccnt*n -(rcnt*ccnt);
     cout<<ans<<endl; 
     return 0;
 }
