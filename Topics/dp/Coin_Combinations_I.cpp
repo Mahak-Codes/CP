@@ -25,9 +25,5 @@ int32_t main() {
         }
     }
     cout<<dp[x]<<endl;
-
-
-    
-
     return 0;
 }
