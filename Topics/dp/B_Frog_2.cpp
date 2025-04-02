@@ -7,21 +7,21 @@ using namespace std;
 
 int32_t main() {
     mahak_codes
-    int n,x;
-    cin>>n>>x;
-    vector<int>c(n);
+    int n,k;
+    cin>>n>>k;
+    vector<int>h(n);
     for(int i=0;i<n;i++){
-        cin>>c[i];
+        cin>>h[i];
     }
-    vector<int>dp(x+1,INT_MAX);
+    vector<int>dp(n+1,INT_MAX);
     dp[0]=0;
-    for(int i=1;i<=x;i++){
-        for(int j=0;j<n;j++){
-            if(i>=c[j]){
-               dp[i]=min(dp[i],dp[i-c[j]]+1);
+    for(int i=1;i<n;i++){
+        for(int j=1;j<=k;j++){
+            if(i-j>=0){
+                dp[i]=min(dp[i],dp[i-j]+abs(h[i-j]-h[i]));
             }
         }
     }
-    cout<<dp[x]<<endl;
+    cout<<dp[n-1]<<endl;
     return 0;
 }
