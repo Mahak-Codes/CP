@@ -1,7 +1,0 @@
-{
-    "files.associations": {
-        "*.cpp": "cpp",
-        "COMMIT_EDITMSG": "git-commit",
-        "random": "cpp"
-    }
-}
