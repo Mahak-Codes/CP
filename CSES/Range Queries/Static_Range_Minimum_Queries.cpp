@@ -1,29 +1,3 @@
-// #include <bits/stdc++.h>
-// using namespace std;
-
-// #define int long long
-// #define endl "\n"
-// #define mahak_codes ios_base::sync_with_stdio(false); cin.tie(nullptr);
-
-// int32_t main() {
-//     mahak_codes
-//     int n,q;
-//     cin>>n>>q;
-//     vector<int>a(n+1);
-//     a[0]=0;
-//     for(int i=1;i<=n;i++){
-//         cin>>a[i];
-//     }
-//     for(int i=1;i<=n;i++){
-//         a[i]+=a[i-1];
-//     }
-//     while(q--){
-//         int a1,b;
-//         cin>>a1>>b;
-//         cout<<a[b]-a[a1-1]<<endl;
-//     }
-//     return 0;
-// }
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -46,12 +20,12 @@ class SegMin{
         int mid=(r-l)/2+l;
         build(2*ind+1,l,mid,a);
         build(2*ind+2,mid+1,r,a);
-        seg[ind]=(seg[2*ind+1]+seg[2*ind+2]);
+        seg[ind]=min(seg[2*ind+1],seg[2*ind+2]);
     }
     int query(int ind,int ql,int qr,int l,int r){
         // ql qr l r ql qr
         if(qr<l or r<ql){
-            return 0;
+            return INT_MAX;
         }
         // ql l r qr
         else if(ql<=l && r<=qr){
@@ -61,7 +35,7 @@ class SegMin{
             int mid=(r-l)/2+l;
             int left=query(2*ind+1,ql,qr,l,mid);
             int right=query(2*ind+2,ql,qr,mid+1,r);
-            return (left+right);
+            return min(left,right);
         }
     }
 };
