@@ -4,11 +4,11 @@ using namespace std;
 #define int long long
 #define endl "\n"
 #define mahak_codes ios_base::sync_with_stdio(false); cin.tie(nullptr);
-bool cmp(vector<int>a,vector<int>b){
-    return a[0]<=b[0];
+bool cmp(vector<int>&a,vector<int>&b){
+    return a[0]<b[0];
 }
-bool cmp1(vector<int>a,vector<int>b){
-    return a[0]+a[1]>=b[0]+b[1];
+bool cmp1(vector<int>&a,vector<int>&b){
+    return a[0]+a[1]>b[0]+b[1];
 }
 int32_t main() {
     mahak_codes
@@ -41,8 +41,8 @@ int32_t main() {
     
     for(int i=0;i<v2.size();i++){
         int a=v2[i][0],b=v2[i][1];
-        a=max(a,-b);
-        if(a>r){
+        int ai=max(a,-b);
+        if(ai>r){
             ans="NO";
             break;
         }
